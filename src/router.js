@@ -24,7 +24,7 @@ export default new Router({
         let to_index = store.getters.get_auto_codes.indexOf(to.params.id)
         if ( to_index > -1) {
             //In the array!, change the current county and load the new page
-            console.log(`@router: SELECT County ${to_index}`)
+            console.log(`@router: SELECT County: ${to_index}`)
             store.dispatch('ACT_SET_CURRENT_COUNTY', to_index)
             next()
         } else {

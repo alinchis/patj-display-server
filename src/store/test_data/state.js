@@ -1,7 +1,7 @@
 export default {
   'user_profile': {
     'id': 0,
-    'name': 'Alin'
+    'name_ro': 'Alin'
   },
   'current_selection': {
     'county_index': '',
@@ -9,7 +9,7 @@ export default {
     'county_name_ro': '',
     'uat_index': '',
     'uat_siruta': '',
-    'uat_name_ro': ''
+    'uat_name_ro': '',
   },
   'counties': [
     {
@@ -25,8 +25,9 @@ export default {
       'logo': '/RO_judet_stema/RO_stema_SV.png',
       'uat': [
         {
-            'siruta': '11',
-            'name': 'localitate A',
+            'code_siruta': '11',
+            'name_ro': 'localitate A',
+            'name_en': 'localitate A',
             'profile': {
                 'description': {
                     'label': 'Date de identificare',
@@ -38,7 +39,8 @@ export default {
                     'vilages_names': {'label': 'Denumiri', 'value': ['localitatea AA', 'localitatea AAA']},
                     'vilages_number': {'label': 'Număr localităţi', 'value': 2},
                     'code_siruta': {'label': 'Cod SIRUTA', 'value': '11'},
-                    'code_postal': {'label': 'Cod poştal', 'value': '717005'}
+                    'code_postal': {'label': 'Cod poştal', 'value': '717005'},
+                    'map': ''
                 },
                 'location': {
                     'label': 'Localizare geografică',
@@ -82,13 +84,164 @@ export default {
                         'types': {'label': 'Tipuri de sol', 'value': ['cernoziomuri cambrice', 'tipice', 'de planta', 'vertice']}
                     },
                     'underground': {
-                        'label': 'Resurse ale subsolului',
+                        'label': 'Resurse de subsol',
                         'value': []
+                    },
+                    'protected_areas': {
+                        'label': 'Zone protejate',
+                        'types': {
+                            'rospa': {
+                                'label': 'ROSPA',
+                                'value': [
+                                    {'name_ro': '', 'area': 10}
+                                ]
+                            },
+                            'other': {
+                                'label': 'Alte rezervaţii',
+                                'value': [
+                                    {'name_ro': '', 'area': 5}
+                                ]
+                            }
+                        }
+                    },
+                    'damaged_landscapes': {
+                        'label': 'Peisaje degradate',
+                        'types': {}
+                    },
+                    'cultural_landscapes': {
+                        'label': 'Peisaje culturale',
+                        'types': {}
+                    },
+                    'lucas': {}
+                },
+                'accessibility': {
+                    'label': 'Accesibilitate',
+                    'types': {
+                        'roads': {
+                            'label': 'Rutieră',
+                            'list': {
+                                'DN': [],
+                                'DJ': [],
+                                'DC': []
+                            },
+                            'distance_to_main': {
+                                'label': 'Distanţa între oraş /sat reşedintă şi municipiul reşedintă de judeţ',
+                                'main': {
+                                    'name_ro': '',
+                                    'name_en': '',
+                                    'code_siruta': ''
+                                },
+                                'distance': {'label': 'Distanta', 'value': 50, 'unit': 'km'},
+                                'time': {'label': 'Timp', 'value': 40, 'unit': 'min'},
+                                'aknoledgement': 'Tehnologia utilizată'
+                            },
+                            'distance_to_city': {
+                                'label': 'Distanţa între oraş /sat reşedintă şi cel mai apropiat oraş',
+                                'city': {
+                                    'name_ro': '',
+                                    'name_en': '',
+                                    'code_siruta': ''
+                                },
+                                'distance': {'label': 'Distanta', 'value': 60, 'unit': 'km'},
+                                'time': {'label': 'Timp', 'value': 45, 'unit': 'min'},
+                                'notes': 'Tehnologia utilizată'
+                            },
+                            'connections': {
+                                'label': 'Conectare la sisteme de transport public inter-urban',
+                                'value': []
+                            },
+                            'border': {
+                                'label': 'Puncte de trecere a frontierei',
+                                'list': {}
+                            }
+                        },
+                        'railroads': {'label': 'Feroviară', 'value': []},
+                        'aerial': {
+                            'label': 'Aeriană',
+                            'airports': [
+                                {
+                                    'name_ro': '',
+                                    'name_en': '',
+                                    'city': {
+                                        'name_ro': '',
+                                        'name_en': '',
+                                        'code_siruta': '',
+                                        'county': {
+                                            'name_ro': '',
+                                            'name_en': '',
+                                            'code_siruta': ''
+                                        }
+                                    },
+                                    'distance': {'label': 'Distanta', 'value': 60, 'unit': 'km'},
+                                    'time': {'label': 'Timp', 'value': 45, 'unit': 'min'},
+                                    'notes': 'Tehnologia utilizată'
+                                }
+                            ]
+                        },
+                        'water': {'label': 'Maritimă şi fluvială', 'value': []}
                     }
                 },
-                'accessibility': {},
-                'history': {},
-                'territory': {},
+                'history': {
+                    'label': 'Aspecte istorice',
+                    'uat': {
+                        'label': 'UAT',
+                        'name_current': {'label': 'Denumire actuală', 'value': 'Localitate A'},
+                        'name_old': {'label': 'Denumiri vechi', 'value': []},
+                        'first': {
+                            'label': 'Atestare documentară',
+                            'value': {
+                                'year': {'label': 'Anul', 'value': 1500},
+                                'document': {'label': 'Documentul', 'value': ''},
+                                'author': {'label': 'Autorul', 'value': ''},
+                                'source': {'label': 'Sursa', 'value': {}}
+                            }
+                        }
+                    },
+                    'localities': {
+                        'label': 'Localitaţi',
+                        'value': [
+                            {
+                                'name_current': {'label': 'Denumire actuală', 'value': 'Localitate AA'},
+                                'name_old': {'label': 'Denumiri vechi', 'value': []},
+                                'first': {
+                                    'label': 'Atestare documentară',
+                                    'value': {
+                                        'year': {'label': 'Anul', 'value': 1550},
+                                        'document': {'label': 'Documentul', 'value': ''},
+                                        'author': {'label': 'Autorul', 'value': ''},
+                                        'source': {'label': 'Sursa', 'value': {}}
+                                    }
+                                }
+                            },
+                            {
+                                'name_current': {'label': 'Denumire actuală', 'value': 'Localitate AAA'},
+                                'name_old': {'label': 'Denumiri vechi', 'value': []},
+                                'first': {
+                                    'label': 'Atestare documentară',
+                                    'value': {
+                                        'year': {'label': 'Anul', 'value': 1650},
+                                        'document': {'label': 'Documentul', 'value': ''},
+                                        'author': {'label': 'Autorul', 'value': ''},
+                                        'source': {'label': 'Sursa', 'value': {}}
+                                    }
+                                }
+                            }
+                        ]
+                    }
+                },
+                'territory': {
+                    'label': 'Teritoriu administrativ',
+                    'area': {
+                        'total': {'label': 'Suprafaţa totală', 'value': 8888, 'unit': 'ha'},
+                        'percent': {'label': 'Procent din suprafaţa judeţului', 'value': 37.8, 'unit': '%'}
+                    },
+                    'balance': {
+                        'label': 'Bilanţ teritorial',
+                        'table': {
+                            'header': []
+                        }
+                    }
+                },
                 'urbanism': {},
                 'population': {},
                 'economy': {},
@@ -103,14 +256,14 @@ export default {
                 'recommendations': {}
             }
         },
-        {'siruta': '12', 'name': 'localitate B'},
-        {'siruta': '13', 'name': 'localitate C'},
-        {'siruta': '14', 'name': 'localitate D'},
-        {'siruta': '15', 'name': 'localitate E'},
-        {'siruta': '16', 'name': 'localitate F'},
-        {'siruta': '17', 'name': 'localitate G'},
-        {'siruta': '18', 'name': 'localitate H'},
-        {'siruta': '19', 'name': 'localitate I'}
+        {'code_siruta': '12', 'name_ro': 'localitate B', 'name_en': 'localitate B'},
+        {'code_siruta': '13', 'name_ro': 'localitate C', 'name_en': 'localitate C'},
+        {'code_siruta': '14', 'name_ro': 'localitate D', 'name_en': 'localitate D'},
+        {'code_siruta': '15', 'name_ro': 'localitate E', 'name_en': 'localitate E'},
+        {'code_siruta': '16', 'name_ro': 'localitate F', 'name_en': 'localitate F'},
+        {'code_siruta': '17', 'name_ro': 'localitate G', 'name_en': 'localitate G'},
+        {'code_siruta': '18', 'name_ro': 'localitate H', 'name_en': 'localitate H'},
+        {'code_siruta': '19', 'name_ro': 'localitate I', 'name_en': 'localitate I'}
       ]
     },
     {
@@ -125,15 +278,15 @@ export default {
       'main_uat_name_ro': 'Zalău',
       'logo': '/RO_judet_stema/RO_stema_SJ.png',
       'uat': [
-        {'siruta': '21', 'name': 'localitate J'},
-        {'siruta': '22', 'name': 'localitate K'},
-        {'siruta': '23', 'name': 'localitate L'},
-        {'siruta': '24', 'name': 'localitate M'},
-        {'siruta': '25', 'name': 'localitate N'},
-        {'siruta': '26', 'name': 'localitate O'},
-        {'siruta': '27', 'name': 'localitate P'},
-        {'siruta': '28', 'name': 'localitate Q'},
-        {'siruta': '29', 'name': 'localitate R'}
+        {'code_siruta': '21', 'name_ro': 'localitate J', 'name_en': 'localitate J'},
+        {'code_siruta': '22', 'name_ro': 'localitate K', 'name_en': 'localitate K'},
+        {'code_siruta': '23', 'name_ro': 'localitate L', 'name_en': 'localitate L'},
+        {'code_siruta': '24', 'name_ro': 'localitate M', 'name_en': 'localitate M'},
+        {'code_siruta': '25', 'name_ro': 'localitate N', 'name_en': 'localitate N'},
+        {'code_siruta': '26', 'name_ro': 'localitate O', 'name_en': 'localitate O'},
+        {'code_siruta': '27', 'name_ro': 'localitate P', 'name_en': 'localitate P'},
+        {'code_siruta': '28', 'name_ro': 'localitate Q', 'name_en': 'localitate Q'},
+        {'code_siruta': '29', 'name_ro': 'localitate R', 'name_en': 'localitate R'}
       ]
     },
     {
@@ -148,14 +301,14 @@ export default {
       'main_uat_name_ro': 'Tulcea',
       'logo': '/RO_judet_stema/RO_stema_TL.png',
       'uat': [
-        {'siruta': '31', 'name': 'localitate S'},
-        {'siruta': '32', 'name': 'localitate T'},
-        {'siruta': '33', 'name': 'localitate U'},
-        {'siruta': '34', 'name': 'localitate V'},
-        {'siruta': '35', 'name': 'localitate X'},
-        {'siruta': '36', 'name': 'localitate Y'},
-        {'siruta': '37', 'name': 'localitate Z'},
-        {'siruta': '38', 'name': 'localitate W'}
+        {'code_siruta': '31', 'name_ro': 'localitate S', 'name_en': 'localitate S'},
+        {'code_siruta': '32', 'name_ro': 'localitate T', 'name_en': 'localitate T'},
+        {'code_siruta': '33', 'name_ro': 'localitate U', 'name_en': 'localitate U'},
+        {'code_siruta': '35', 'name_ro': 'localitate X', 'name_en': 'localitate X'},
+        {'code_siruta': '34', 'name_ro': 'localitate V', 'name_en': 'localitate V'},
+        {'code_siruta': '36', 'name_ro': 'localitate Y', 'name_en': 'localitate Y'},
+        {'code_siruta': '37', 'name_ro': 'localitate Z', 'name_en': 'localitate Z'},
+        {'code_siruta': '38', 'name_ro': 'localitate W', 'name_en': 'localitate W'}
       ]
     }
   ]

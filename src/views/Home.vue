@@ -1,59 +1,58 @@
 <template>
-  <v-item-group>
-    <v-container grid-list-md>
-      <v-layout align-center justify-center row>
-        <v-flex
-          v-for="(item, index) in this.currentProjects"
-          :key="item.id"
-          xs12
-          md4
-        >
-          <v-hover>
-            <v-card
-              slot-scope="{ hover }"
-              :class="`elevation-${hover ? 12 : 2}`"
-              class="mx-auto"
-              ripple
-              @click.native="selectCard(item.code_auto, index)"
-            >
-              <v-img :src="getImage(index)"></v-img>
-              <v-card-title primary-title>
-                <div>
-                  <div class="headline">{{item.name_ro}}</div>
-                </div>
-              </v-card-title>
-
-            </v-card>
-          </v-hover>
-        </v-flex>
-      </v-layout>
-    </v-container>
-  </v-item-group>
+  <div class="md-layout md-gutter md-alignment-center-center">
+    <md-card
+      md-with-hover
+      @click.native="selectCard(item.code_auto, index)"
+      v-for="(item, index) in this.currentProjects"
+      :key="item.id"
+    >
+      <md-card-media>
+        <img :src="getImage(index)">
+      </md-card-media>
+      <md-card-header>
+        <div id="title-text" class="md-display-1">{{item.code_auto}}</div>
+      </md-card-header>
+    </md-card>
+  </div>
 </template>
 
 <script>
-  export default {
-    components: {
+export default {
+  computed: {
+    currentProjects () {
+      return this.$store.state.counties
+    }
+  },
+  methods: {
+    selectCard (value, index) {
+      console.log(`@home: SELECT County: ${value}, ${index}`)
+      // this.$store.dispatch('ACT_SET_CURRENT_COUNTY', index)
+      this.$router.push({ name: 'project', params: { id: value }})
     },
-    computed: {
-      currentProjects () {
-        return this.$store.state.counties
-      }
-    },
-    methods: {
-      selectCard (value, index) {
-        console.log(`@home: SELECT County card: ${value}, ${index}`)
-        this.$store.dispatch('ACT_SET_CURRENT_COUNTY', index)
-        this.$router.push({ name: 'project', params: { id: value }})
-      },
-      getImage (index) {
-        console.log(`@home: GET stema index: ${index}`)
-        return this.$store.state.counties[index].logo
-      }
+    getImage (index) {
+      console.log(`@home: GET stema index: ${index}`)
+      return this.$store.state.counties[index].logo
     }
   }
+}
 </script>
 
-<style>
+
+<style lang="scss" scoped>
+
+.md-card {
+  width: 190px;
+  margin: 4px;
+  display: inline-block;
+  vertical-align: center;
+}
+
+.md-layout {
+  height: 100%;
+}
+
+#title-text {
+  text-align: center;
+}
 
 </style>

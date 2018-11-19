@@ -32,10 +32,10 @@ export default new Router({
             next('/')
         }
       }
+    },
+    {
+      path: '*',
+      redirect: '/'
     }
-    // {
-    //   path: '*',
-    //   redirect: '/'
-    // }
   ]
 })

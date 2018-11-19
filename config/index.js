@@ -1,4 +1,5 @@
 // config/index.js
+
 module.exports = {
   // ...
   build: {

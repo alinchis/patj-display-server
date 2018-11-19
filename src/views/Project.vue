@@ -52,7 +52,7 @@
       <!-- Content area -->
       <md-app-content>
         <object
-          v-if="this.selected"
+          v-if="this.currentUatSiruta"
           id="pdf_object"
           :data="currentPdf"
           type="application/pdf"
@@ -91,7 +91,7 @@ export default {
       return this.currentSelection.uat_siruta
     },
     currentPdf () {
-      let path = '/pdf/' + this.currentSelection.uat_siruta + '.pdf#zoom=100'
+      let path = 'http://localhost:3333/static/' + this.currentSelection.uat_siruta + '.pdf#zoom=100'
       // console.log('@project/table: pdf file path: ', path)
       return path
     },
@@ -106,9 +106,6 @@ export default {
   },
 
   methods: {
-    testSearch (index) {
-      console.log('@project/search: Searched item: ')
-    },
     itemSelect (item) {
       console.log('@project/table/itemSelect: ', item)
       // this.selected is handled by MD and itemSelect is called every time there is a change
